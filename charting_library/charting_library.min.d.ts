@@ -618,6 +618,8 @@ export interface IChartWidgetApi {
 	setTimezone(timezone: 'exchange' | Timezone): void;
 	getPanes(): IPaneApi[];
 	exportData(options?: ExportDataOptions): Promise<ExportedData>;
+	canZoomOut(): boolean;
+	zoomOut(): void;
 }
 export interface IChartingLibraryWidget {
 	headerReady(): Promise<void>;
