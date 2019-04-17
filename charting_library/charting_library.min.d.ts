@@ -899,6 +899,8 @@ export interface IPositionLineAdapter {
 export interface IPriceScaleApi {
 	getMode(): PriceScaleMode;
 	setMode(newMode: PriceScaleMode): void;
+	isInverted(): boolean;
+	setInverted(isInverted: boolean): void;
 }
 export interface ISelectionApi {
 	add(entities: EntityId[]): void;
