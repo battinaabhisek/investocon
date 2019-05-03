@@ -700,6 +700,8 @@ export interface IChartingLibraryWidget {
 	takeScreenshot(): void;
 	lockAllDrawingTools(): IWatchedValue<boolean>;
 	hideAllDrawingTools(): IWatchedValue<boolean>;
+	magnetEnabled(): IWatchedValue<boolean>;
+	magnetMode(): IWatchedValue<number>;
 	undoRedoState(): UndoRedoState;
 }
 export interface IDatafeedChartApi {
