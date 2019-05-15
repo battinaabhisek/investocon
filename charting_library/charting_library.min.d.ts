@@ -639,6 +639,7 @@ export interface IChartWidgetApi {
 	removeAllShapes(): void;
 	removeAllStudies(): void;
 	selection(): ISelectionApi;
+	showPropertiesDialog(studyId: EntityId): void;
 	createStudyTemplate(options: CreateStudyTemplateOptions): object;
 	applyStudyTemplate(template: object): void;
 	createOrderLine(options: CreateTradingPrimitiveOptions): IOrderLineAdapter;
