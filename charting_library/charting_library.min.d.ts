@@ -657,6 +657,8 @@ export interface IChartWidgetApi {
 	exportData(options?: ExportDataOptions): Promise<ExportedData>;
 	canZoomOut(): boolean;
 	zoomOut(): void;
+	setZoomEnabled(enabled: boolean): void;
+	setScrollEnabled(enabled: boolean): void;
 }
 export interface IChartingLibraryWidget {
 	headerReady(): Promise<void>;
