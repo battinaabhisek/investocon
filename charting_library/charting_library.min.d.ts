@@ -632,6 +632,7 @@ export interface IChartWidgetApi {
 	setEntityVisibility(entityId: EntityId, isVisible: boolean): void;
 	createStudy<TStudyInputValue extends StudyInputValue, TOverrides extends StudyOverrides>(name: string, forceOverlay: boolean, lock?: boolean, inputs?: TStudyInputValue[], overrides?: TOverrides, options?: CreateStudyOptions): Promise<EntityId | null>;
 	getStudyById(entityId: EntityId): IStudyApi;
+	getSeries(): ISeriesApi;
 	createShape<TOverrides extends object>(point: ShapePoint, options: CreateShapeOptions<TOverrides>): EntityId | null;
 	createMultipointShape<TOverrides extends object>(points: ShapePoint[], options: CreateShapeOptions<TOverrides>): EntityId | null;
 	getShapeById(entityId: EntityId): ILineDataSourceApi;
@@ -650,6 +651,8 @@ export interface IChartWidgetApi {
 	resolution(): ResolutionString;
 	getVisibleRange(): VisibleTimeRange;
 	getVisiblePriceRange(): VisiblePriceRange;
+	scrollPosition(): number;
+	defaultScrollPosition(): number;
 	priceFormatter(): IFormatter;
 	chartType(): SeriesStyle;
 	setTimezone(timezone: 'exchange' | Timezone): void;
@@ -916,6 +919,23 @@ export interface ISelectionApi {
 	isEmpty(): boolean;
 	clear(): void;
 	onChanged(): ISubscription<() => void>;
+}
+export interface ISeriesApi {
+	isUserEditEnabled(): boolean;
+	setUserEditEnabled(enabled: boolean): void;
+	mergeUp(): void;
+	mergeDown(): void;
+	unmergeUp(): void;
+	unmergeDown(): void;
+	detachToRight(): void;
+	detachToLeft(): void;
+	detachNoScale(): void;
+	moveToOtherSourceScale(entityId: EntityId): void;
+	isVisible(): boolean;
+	setVisible(visible: boolean): void;
+	bringToFront(): void;
+	sendToBack(): void;
+	entityId(): EntityId;
 }
 export interface ISettingsAdapter {
 	initialSettings?: InitialSettingsMap;
