@@ -656,6 +656,7 @@ export interface IChartWidgetApi {
 	priceFormatter(): IFormatter;
 	chartType(): SeriesStyle;
 	setTimezone(timezone: 'exchange' | Timezone): void;
+	getTimezone(): 'exchange' | Timezone;
 	getPanes(): IPaneApi[];
 	exportData(options?: ExportDataOptions): Promise<ExportedData>;
 	canZoomOut(): boolean;

@@ -11,7 +11,7 @@
 	</script>
 	<script defer crossorigin="anonymous" type="text/javascript" src="bundles/runtime.26ccb20d9ff9c0f5b1c0.js" ></script>
 	<script defer crossorigin="anonymous" type="text/javascript" src="bundles/vendors.56f12893f6f77b11fb67.js" ></script>
-	<script defer crossorigin="anonymous" type="text/javascript" src="bundles/library.5276b7d46dc70976091d.js" ></script>
+	<script defer crossorigin="anonymous" type="text/javascript" src="bundles/library.7d4445faa85204321c1f.js" ></script>
 	
 	<link type="text/css" href="bundles/library.1a2e8d14003094761efd.css" rel="stylesheet"/>
 </head>
@@ -65,10 +65,10 @@
 
 		window.addCustomCSSFile = function(href) {
 			var link = document.createElement('link');
-			document.getElementsByTagName('head')[0].appendChild(link);
 			link.setAttribute('type', 'text/css');
 			link.setAttribute('rel', 'stylesheet');
 			link.setAttribute('href', href);
+			document.body.appendChild(link);
 		};
 
 		if (!!urlParams.customCSS) {
