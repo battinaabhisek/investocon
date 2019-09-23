@@ -11,6 +11,7 @@ export declare type ResolutionBackValues = 'D' | 'M';
 export declare type ResolutionString = string;
 export declare type ResolveCallback = (symbolInfo: LibrarySymbolInfo) => void;
 export declare type SearchSymbolsCallback = (items: SearchSymbolResultItem[]) => void;
+export declare type SeriesFormat = 'price' | 'volume';
 export declare type ServerTimeCallback = (serverTime: number) => void;
 export declare type SubscribeBarsCallback = (bar: Bar) => void;
 export declare type Timezone = 'Etc/UTC' | CustomTimezones;
@@ -89,7 +90,7 @@ export interface IDatafeedChartApi {
 	getBars(symbolInfo: LibrarySymbolInfo, resolution: ResolutionString, rangeStartDate: number, rangeEndDate: number, onResult: HistoryCallback, onError: ErrorCallback, isFirstCall: boolean): void;
 	subscribeBars(symbolInfo: LibrarySymbolInfo, resolution: ResolutionString, onTick: SubscribeBarsCallback, listenerGuid: string, onResetCacheNeededCallback: () => void): void;
 	unsubscribeBars(listenerGuid: string): void;
-	subscribeDepth?(symbolInfo: LibrarySymbolInfo, callback: DomeCallback): string;
+	subscribeDepth?(symbol: string, callback: DomeCallback): string;
 	unsubscribeDepth?(subscriberUID: string): void;
 }
 export interface IDatafeedQuotesApi {
@@ -124,6 +125,10 @@ export interface LibrarySymbolInfo {
 	exchange: string;
 	listed_exchange: string;
 	timezone: Timezone;
+	/**
+	 * Prices format: "price" or "volume"
+	 */
+	format: SeriesFormat;
 	/**
 	 * Code (Tick)
 	 * @example 8/16/.../256 (1/8/100 1/16/100 ... 1/256/100) or 1/10/.../10000000 (1 0.1 ... 0.0000001)
