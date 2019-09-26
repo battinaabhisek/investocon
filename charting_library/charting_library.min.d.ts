@@ -853,6 +853,10 @@ export interface IPaneApi {
 	getLeftPriceScales(): ReadonlyArray<IPriceScaleApi>;
 	getRightPriceScales(): ReadonlyArray<IPriceScaleApi>;
 	getMainSourcePriceScale(): IPriceScaleApi | null;
+	getHeight(): number;
+	setHeight(height: number): void;
+	moveTo(paneIndex: number): void;
+	paneIndex(): number;
 }
 export interface IPositionLineAdapter {
 	remove(): void;
