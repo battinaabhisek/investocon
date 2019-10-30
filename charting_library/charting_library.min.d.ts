@@ -810,6 +810,10 @@ export interface IOrderLineAdapter {
 	setText(value: string): this;
 	getTooltip(): string;
 	setTooltip(value: string): this;
+	getModifyTooltip(): string;
+	setModifyTooltip(value: string): this;
+	getCancelTooltip(): string;
+	setCancelTooltip(value: string): this;
 	getQuantity(): string;
 	setQuantity(value: string): this;
 	getEditable(): boolean;
@@ -871,6 +875,12 @@ export interface IPositionLineAdapter {
 	setText(value: string): this;
 	getTooltip(): string;
 	setTooltip(value: string): this;
+	getProtectTooltip(): string;
+	setProtectTooltip(value: string): this;
+	getCloseTooltip(): string;
+	setCloseTooltip(value: string): this;
+	getReverseTooltip(): string;
+	setReverseTooltip(value: string): this;
 	getQuantity(): string;
 	setQuantity(value: string): this;
 	getExtendLeft(): boolean;
@@ -1425,6 +1435,10 @@ export interface Trade extends CustomFields {
 	side: Side;
 	price: number;
 }
+export interface TradingCustomization {
+	position: Overrides;
+	order: Overrides;
+}
 export interface TradingQuotes {
 	trade?: number;
 	size?: number;
@@ -1440,6 +1454,7 @@ export interface TradingTerminalWidgetOptions extends ChartingLibraryWidgetOptio
 	widgetbar?: WidgetBarParams;
 	rss_news_feed?: RssNewsFeedParams;
 	news_provider?: NewsProvider;
+	trading_customization?: TradingCustomization;
 	brokerFactory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
 }
 export interface UndoRedoState {
