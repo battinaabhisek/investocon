@@ -615,7 +615,7 @@ export interface IChartWidgetApi {
 	onVisibleRangeChanged(): ISubscription<() => void>;
 	dataReady(callback: () => void): boolean;
 	crossHairMoved(callback: (params: CrossHairMovedEventParams) => void): void;
-	setVisibleRange(range: VisibleTimeRange, applyDefaultRightMargin?: boolean): Promise<void>;
+	setVisibleRange(range: VisibleTimeRange, options?: SetVisibleRangeOptions): Promise<void>;
 	setSymbol(symbol: string, callback: () => void): void;
 	setResolution(resolution: ResolutionString, callback: () => void): void;
 	resetData(): void;
@@ -1284,6 +1284,10 @@ export interface SeriesFieldDescriptor {
 	type: 'value';
 	sourceType: 'series';
 	plotTitle: string;
+}
+export interface SetVisibleRangeOptions {
+	applyDefaultRightMargin?: boolean;
+	percentRightMargin?: number;
 }
 export interface SingleBrokerMetaInfo {
 	configFlags: BrokerConfigFlags;
