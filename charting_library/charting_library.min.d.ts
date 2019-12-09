@@ -291,7 +291,7 @@ export interface ChartingLibraryWidgetOptions {
 	container_id: string;
 	datafeed: IBasicDataFeed | (IBasicDataFeed & IDatafeedQuotesApi);
 	interval: ResolutionString;
-	symbol: string;
+	symbol?: string;
 	auto_save_delay?: number;
 	autosize?: boolean;
 	debug?: boolean;
