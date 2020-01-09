@@ -429,6 +429,7 @@ export interface CreateShapeOptions<TOverrides extends object> {
 	overrides?: TOverrides;
 	zOrder?: 'top' | 'bottom';
 	showInObjectsTree?: boolean;
+	ownerStudyId?: EntityId;
 }
 export interface CreateStudyOptions {
 	checkLimit?: boolean;
