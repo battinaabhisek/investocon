@@ -795,6 +795,8 @@ export interface IChartWidgetApi {
 	setZoomEnabled(enabled: boolean): void;
 	setScrollEnabled(enabled: boolean): void;
 	shapesGroupController(): IShapesGroupControllerApi;
+	barTimeToEndOfPeriod(unixTime: number): number;
+	endOfPeriodToBarTime(unixTime: number): number;
 }
 export interface IChartingLibraryWidget {
 	headerReady(): Promise<void>;
