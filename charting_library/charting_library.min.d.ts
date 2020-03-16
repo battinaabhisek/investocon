@@ -1060,6 +1060,8 @@ export interface IPriceScaleApi {
 	setInverted(isInverted: boolean): void;
 	getVisiblePriceRange(): VisiblePriceRange | null;
 	setVisiblePriceRange(range: VisiblePriceRange): void;
+	hasMainSeries(): boolean;
+	getStudies(): string[];
 }
 export interface ISelectionApi {
 	add(entities: EntityId[]): void;
@@ -1082,7 +1084,7 @@ export interface ISeriesApi {
 	detachToRight(): void;
 	detachToLeft(): void;
 	detachNoScale(): void;
-	moveToOtherSourceScale(entityId: EntityId): void;
+	changePriceScale(newPriceScale: string): void;
 	isVisible(): boolean;
 	setVisible(visible: boolean): void;
 	bringToFront(): void;
@@ -1127,7 +1129,7 @@ export interface IStudyApi {
 	mergeDown(): void;
 	unmergeUp(): void;
 	unmergeDown(): void;
-	changePriceScale(newPriceScale: StudyPriceScale): void;
+	changePriceScale(newPriceScale: string): void;
 	isVisible(): boolean;
 	setVisible(visible: boolean): void;
 	bringToFront(): void;
