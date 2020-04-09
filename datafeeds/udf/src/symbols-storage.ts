@@ -1,6 +1,7 @@
 import {
 	LibrarySymbolInfo,
 	SearchSymbolResultItem,
+	ResolutionString,
 } from '../../../charting_library/datafeed-api';
 
 import {
@@ -38,7 +39,7 @@ interface ExchangeDataResponseSymbolData {
 
 	'force-session-rebuild'?: boolean;
 
-	'supported-resolutions'?: string[];
+	'supported-resolutions'?: ResolutionString[];
 	'intraday-multipliers'?: string[];
 
 	'has-intraday'?: boolean;
@@ -85,10 +86,10 @@ export class SymbolsStorage {
 	private readonly _symbolsList: string[] = [];
 	private readonly _datafeedUrl: string;
 	private readonly _readyPromise: Promise<void>;
-	private readonly _datafeedSupportedResolutions: string[];
+	private readonly _datafeedSupportedResolutions: ResolutionString[];
 	private readonly _requester: Requester;
 
-	public constructor(datafeedUrl: string, datafeedSupportedResolutions: string[], requester: Requester) {
+	public constructor(datafeedUrl: string, datafeedSupportedResolutions: ResolutionString[], requester: Requester) {
 		this._datafeedUrl = datafeedUrl;
 		this._datafeedSupportedResolutions = datafeedSupportedResolutions;
 		this._requester = requester;

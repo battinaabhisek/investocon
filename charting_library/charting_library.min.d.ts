@@ -134,7 +134,7 @@ export declare type PineJS = any;
 export declare type QuoteData = QuoteOkData | QuoteErrorData;
 export declare type QuotesCallback = (data: QuoteData[]) => void;
 export declare type ResolutionBackValues = 'D' | 'M';
-export declare type ResolutionString = string;
+export declare type ResolutionString = Nominal<string, 'ResolutionString'>;
 export declare type ResolveCallback = (symbolInfo: LibrarySymbolInfo) => void;
 export declare type RssNewsFeedItem = RssNewsFeedInfo | RssNewsFeedInfo[];
 export declare type SearchSymbolsCallback = (items: SearchSymbolResultItem[]) => void;

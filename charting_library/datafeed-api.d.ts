@@ -1,3 +1,19 @@
+/**
+ * This is the generic type useful for declaring a nominal type,
+ * which does not structurally matches with the base type and
+ * the other types declared over the same base type
+ *
+ * Usage:
+ * @example
+ * type Index = Nominal<number, 'Index'>;
+ * // let i: Index = 42; // this fails to compile
+ * let i: Index = 42 as Index; // OK
+ * @example
+ * type TagName = Nominal<string, 'TagName'>;
+ */
+export declare type Nominal<T, Name extends string> = T & {
+	[Symbol.species]: Name;
+};
 export declare type DomeCallback = (data: DOMData) => void;
 export declare type ErrorCallback = (reason: string) => void;
 export declare type GetMarksCallback<T> = (marks: T[]) => void;
@@ -7,7 +23,7 @@ export declare type OnReadyCallback = (configuration: DatafeedConfiguration) => 
 export declare type QuoteData = QuoteOkData | QuoteErrorData;
 export declare type QuotesCallback = (data: QuoteData[]) => void;
 export declare type ResolutionBackValues = 'D' | 'M';
-export declare type ResolutionString = string;
+export declare type ResolutionString = Nominal<string, 'ResolutionString'>;
 export declare type ResolveCallback = (symbolInfo: LibrarySymbolInfo) => void;
 export declare type SearchSymbolsCallback = (items: SearchSymbolResultItem[]) => void;
 export declare type SeriesFormat = 'price' | 'volume';
