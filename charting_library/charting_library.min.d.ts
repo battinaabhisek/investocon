@@ -838,6 +838,7 @@ export interface IChartingLibraryWidget {
 	setLayout(layout: LayoutType): void;
 	layoutName(): string;
 	changeTheme(themeName: ThemeName): void;
+	getTheme(): ThemeName;
 	takeScreenshot(): void;
 	lockAllDrawingTools(): IWatchedValue<boolean>;
 	hideAllDrawingTools(): IWatchedValue<boolean>;
