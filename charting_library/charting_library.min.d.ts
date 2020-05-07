@@ -434,6 +434,7 @@ export interface CreateShapeOptions<TOverrides extends object> {
 export interface CreateStudyOptions {
 	checkLimit?: boolean;
 	priceScale?: StudyPriceScale;
+	disableUndo?: boolean;
 }
 export interface CreateStudyTemplateOptions {
 	saveInterval?: boolean;
@@ -844,6 +845,10 @@ export interface IChartingLibraryWidget {
 	hideAllDrawingTools(): IWatchedValue<boolean>;
 	magnetEnabled(): IWatchedValue<boolean>;
 	magnetMode(): IWatchedValue<number>;
+	symbolSync(): IWatchedValue<boolean>;
+	intervalSync(): IWatchedValue<boolean>;
+	crosshairSync(): IWatchedValue<boolean>;
+	timeSync(): IWatchedValue<boolean>;
 	undoRedoState(): UndoRedoState;
 }
 export interface IDatafeedChartApi {
