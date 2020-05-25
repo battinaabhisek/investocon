@@ -139,6 +139,7 @@ export declare type ResolveCallback = (symbolInfo: LibrarySymbolInfo) => void;
 export declare type RssNewsFeedItem = RssNewsFeedInfo | RssNewsFeedInfo[];
 export declare type SearchSymbolsCallback = (items: SearchSymbolResultItem[]) => void;
 export declare type SeriesFormat = 'price' | 'volume';
+export declare type SeriesPriceScale = 'new-left' | 'new-right' | 'no-scale' | EntityId;
 export declare type ServerTimeCallback = (serverTime: number) => void;
 export declare type ShapePoint = StickedPoint | PricedPoint | TimePoint;
 export declare type ShapesGroupId = Nominal<string, 'ShapesGroupId'>;
@@ -147,7 +148,7 @@ export declare type StandardFormatterName = 'date' | 'dateOrDateTime' | 'default
 export declare type StudyInputId = Nominal<string, 'StudyInputId'>;
 export declare type StudyInputValue = string | number | boolean;
 export declare type StudyOverrideValueType = string | number | boolean;
-export declare type StudyPriceScale = 'left' | 'right' | 'no-scale' | 'as-series';
+export declare type StudyPriceScale = 'new-left' | 'new-right' | 'no-scale' | 'as-series';
 export declare type SubscribeBarsCallback = (bar: Bar) => void;
 export declare type SupportedLineTools = 'text' | 'anchored_text' | 'note' | 'anchored_note' | 'double_curve' | 'arc' | 'icon' | 'arrow_up' | 'arrow_down' | 'arrow_left' | 'arrow_right' | 'price_label' | 'flag' | 'vertical_line' | 'horizontal_line' | 'cross_line' | 'horizontal_ray' | 'trend_line' | 'info_line' | 'trend_angle' | 'arrow' | 'ray' | 'extended' | 'parallel_channel' | 'disjoint_angle' | 'flat_bottom' | 'pitchfork' | 'schiff_pitchfork_modified' | 'schiff_pitchfork' | 'balloon' | 'inside_pitchfork' | 'pitchfan' | 'gannbox' | 'gannbox_square' | 'gannbox_fixed' | 'gannbox_fan' | 'fib_retracement' | 'fib_trend_ext' | 'fib_speed_resist_fan' | 'fib_timezone' | 'fib_trend_time' | 'fib_circles' | 'fib_spiral' | 'fib_speed_resist_arcs' | 'fib_channel' | 'xabcd_pattern' | 'cypher_pattern' | 'abcd_pattern' | 'callout' | 'triangle_pattern' | '3divers_pattern' | 'head_and_shoulders' | 'fib_wedge' | 'elliott_impulse_wave' | 'elliott_triangle_wave' | 'elliott_triple_combo' | 'elliott_correction' | 'elliott_double_combo' | 'cyclic_lines' | 'time_cycles' | 'sine_line' | 'long_position' | 'short_position' | 'forecast' | 'date_range' | 'price_range' | 'date_and_price_range' | 'bars_pattern' | 'ghost_feed' | 'projection' | 'rectangle' | 'rotated_rectangle' | 'ellipse' | 'triangle' | 'polyline' | 'curve' | 'cursor' | 'dot' | 'arrow_cursor' | 'eraser' | 'measure' | 'zoom' | 'brush';
 export declare type SymbolType = 'stock' | 'index' | 'forex' | 'futures' | 'bitcoin' | 'crypto' | 'undefined' | 'expression' | 'spread' | 'cfd';
@@ -1067,7 +1068,7 @@ export interface IPriceScaleApi {
 	getVisiblePriceRange(): VisiblePriceRange | null;
 	setVisiblePriceRange(range: VisiblePriceRange): void;
 	hasMainSeries(): boolean;
-	getStudies(): string[];
+	getStudies(): EntityId[];
 }
 export interface ISelectionApi {
 	add(entities: EntityId[]): void;
@@ -1090,7 +1091,7 @@ export interface ISeriesApi {
 	detachToRight(): void;
 	detachToLeft(): void;
 	detachNoScale(): void;
-	changePriceScale(newPriceScale: string): void;
+	changePriceScale(newPriceScale: SeriesPriceScale): void;
 	isVisible(): boolean;
 	setVisible(visible: boolean): void;
 	bringToFront(): void;
@@ -1135,7 +1136,7 @@ export interface IStudyApi {
 	mergeDown(): void;
 	unmergeUp(): void;
 	unmergeDown(): void;
-	changePriceScale(newPriceScale: string): void;
+	changePriceScale(newPriceScale: StudyPriceScale | EntityId): void;
 	isVisible(): boolean;
 	setVisible(visible: boolean): void;
 	bringToFront(): void;
