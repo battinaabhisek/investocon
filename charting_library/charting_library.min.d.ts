@@ -352,6 +352,9 @@ export interface CandleStylePreferences {
 	wickDownColor: string;
 	barColorsOnPrevClose: boolean;
 }
+export interface ChangeThemeOptions {
+	disableUndo: boolean;
+}
 export interface ChartData {
 	id: string;
 	name: string;
@@ -400,6 +403,7 @@ export interface ChartingLibraryWidgetOptions {
 	load_last_chart?: boolean;
 	studies_overrides?: StudyOverrides;
 	customFormatters?: CustomFormatters;
+	custom_formatters?: CustomFormatters;
 	overrides?: Overrides;
 	snapshot_url?: string;
 	preset?: 'mobile';
@@ -839,7 +843,7 @@ export interface IChartingLibraryWidget {
 	layout(): LayoutType;
 	setLayout(layout: LayoutType): void;
 	layoutName(): string;
-	changeTheme(themeName: ThemeName): void;
+	changeTheme(themeName: ThemeName, options?: ChangeThemeOptions): void;
 	getTheme(): ThemeName;
 	takeScreenshot(): void;
 	lockAllDrawingTools(): IWatchedValue<boolean>;
@@ -1717,12 +1721,14 @@ export interface TradingQuotes {
 }
 export interface TradingTerminalWidgetOptions extends ChartingLibraryWidgetOptions {
 	brokerConfig?: SingleBrokerMetaInfo;
+	broker_config?: SingleBrokerMetaInfo;
 	restConfig?: RestBrokerConnectionInfo;
 	widgetbar?: WidgetBarParams;
 	rss_news_feed?: RssNewsFeedParams;
 	news_provider?: NewsProvider;
 	trading_customization?: TradingCustomization;
 	brokerFactory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
+	broker_factory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
 }
 export interface UndoRedoState {
 	enableUndo: boolean;
