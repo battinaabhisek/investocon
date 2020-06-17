@@ -108,7 +108,7 @@ export declare const widget: ChartingLibraryWidgetConstructor;
 export declare function version(): string;
 export declare type ActionMetaInfo = ActionDescriptionWithCallback | MenuSeparator;
 export declare type AvailableSaveloadVersions = '1.0' | '1.1';
-export declare type ChartActionId = 'chartProperties' | 'compareOrAdd' | 'scalesProperties' | 'paneObjectTree' | 'insertIndicator' | 'symbolSearch' | 'changeInterval' | 'timeScaleReset' | 'chartReset' | 'seriesHide' | 'studyHide' | 'lineToggleLock' | 'lineHide' | 'showLeftAxis' | 'showRightAxis' | 'scaleSeriesOnly' | 'drawingToolbarAction' | 'stayInDrawingModeAction' | 'hideAllMarks' | 'showCountdown' | 'showSeriesLastValue' | 'showSymbolLabelsAction' | 'showStudyLastValue' | 'showStudyPlotNamesAction' | 'undo' | 'redo' | 'paneRemoveAllStudiesDrawingTools';
+export declare type ChartActionId = 'chartProperties' | 'compareOrAdd' | 'scalesProperties' | 'paneObjectTree' | 'insertIndicator' | 'symbolSearch' | 'changeInterval' | 'timeScaleReset' | 'chartReset' | 'seriesHide' | 'studyHide' | 'lineToggleLock' | 'lineHide' | 'scaleSeriesOnly' | 'drawingToolbarAction' | 'stayInDrawingModeAction' | 'hideAllMarks' | 'showCountdown' | 'showSeriesLastValue' | 'showSymbolLabelsAction' | 'showStudyLastValue' | 'showStudyPlotNamesAction' | 'undo' | 'redo' | 'paneRemoveAllStudiesDrawingTools';
 export declare type Direction = 'buy' | 'sell';
 export declare type DomeCallback = (data: DOMData) => void;
 export declare type DrawingEventType = 'click' | 'move' | 'remove' | 'hide' | 'show';
