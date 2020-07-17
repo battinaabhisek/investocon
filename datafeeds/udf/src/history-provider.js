@@ -12,6 +12,9 @@ var HistoryProvider = /** @class */ (function () {
             from: rangeStartDate,
             to: rangeEndDate,
         };
+        if (symbolInfo.currency_code !== undefined) {
+            requestParams.currencyCode = symbolInfo.currency_code;
+        }
         return new Promise(function (resolve, reject) {
             _this._requester.sendRequest(_this._datafeedUrl, 'history', requestParams)
                 .then(function (response) {
