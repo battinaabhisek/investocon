@@ -453,6 +453,7 @@ export interface CreateShapeOptions<TOverrides extends object> {
 export interface CreateStudyOptions {
 	checkLimit?: boolean;
 	priceScale?: StudyPriceScale;
+	allowChangeCurrency?: boolean;
 	disableUndo?: boolean;
 }
 export interface CreateStudyTemplateOptions {
