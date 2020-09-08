@@ -873,6 +873,7 @@ export interface IChartingLibraryWidget {
 	changeTheme(themeName: ThemeName, options?: ChangeThemeOptions): void;
 	getTheme(): ThemeName;
 	takeScreenshot(): void;
+	takeClientScreenshot(): Promise<HTMLCanvasElement>;
 	lockAllDrawingTools(): IWatchedValue<boolean>;
 	hideAllDrawingTools(): IWatchedValue<boolean>;
 	magnetEnabled(): IWatchedValue<boolean>;
