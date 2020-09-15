@@ -427,7 +427,12 @@ export interface ChartingLibraryWidgetOptions {
 	loading_screen?: LoadingScreenOptions;
 	settings_adapter?: ISettingsAdapter;
 	theme?: ThemeName;
+	compare_symbols?: CompareSymbol[];
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<ReadonlyArray<CustomIndicator>>;
+}
+export interface CompareSymbol {
+	symbol: string;
+	title: string;
 }
 export interface ContextMenuItem {
 	position: "top" | "bottom";
@@ -839,7 +844,7 @@ export interface IChartingLibraryWidget {
 	subscribe<EventName extends keyof SubscribeEventsMap>(event: EventName, callback: SubscribeEventsMap[EventName]): void;
 	unsubscribe<EventName extends keyof SubscribeEventsMap>(event: EventName, callback: SubscribeEventsMap[EventName]): void;
 	chart(index?: number): IChartWidgetApi;
-	setLanguage(lang: LanguageCode): void;
+	getLanguage(): LanguageCode;
 	setSymbol(symbol: string, interval: ResolutionString, callback: EmptyCallback): void;
 	remove(): void;
 	closePopupsAndDialogs(): void;
