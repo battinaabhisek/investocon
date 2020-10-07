@@ -802,7 +802,7 @@ export interface IChartWidgetApi {
 	createShape<TOverrides extends object>(point: ShapePoint, options: CreateShapeOptions<TOverrides>): EntityId | null;
 	createMultipointShape<TOverrides extends object>(points: ShapePoint[], options: CreateShapeOptions<TOverrides>): EntityId | null;
 	getShapeById(entityId: EntityId): ILineDataSourceApi;
-	removeEntity(entityId: EntityId): void;
+	removeEntity(entityId: EntityId, options?: RemoveEntityOptions): void;
 	removeAllShapes(): void;
 	removeAllStudies(): void;
 	selection(): ISelectionApi;
@@ -1547,6 +1547,9 @@ export interface QuotesBase {
 	minmove2: number;
 	pricescale: number;
 	description: string;
+}
+export interface RemoveEntityOptions {
+	disableUndo?: boolean;
 }
 export interface RenkoStylePreferences {
 	upColor: string;
